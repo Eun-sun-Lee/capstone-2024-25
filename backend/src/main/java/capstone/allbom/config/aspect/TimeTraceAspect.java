@@ -13,11 +13,11 @@ import org.springframework.util.StopWatch;
 @Aspect
 public class TimeTraceAspect {
 
-    @Pointcut("@annotation(capstone.allbom.config.aspect.TimeTrace)")
-    private void timeTracePointcut() {
+    @Pointcut("execution(public * capstone.allbom..*(..))")
+    private void allPublicMethodsPointcut() {
     }
 
-    @Around("timeTracePointcut()")
+    @Around("allPublicMethodsPointcut()")
     public Object traceTime(ProceedingJoinPoint joinPoint) throws Throwable {
         StopWatch stopWatch = new StopWatch();
 
