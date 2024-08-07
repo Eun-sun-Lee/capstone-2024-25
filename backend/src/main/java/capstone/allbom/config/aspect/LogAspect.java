@@ -19,12 +19,21 @@ public class LogAspect {
 
     void logExecutionInfo(Class<?> typeToLog, Method method, long timeTaken, String logGroup) {
         String traceId = MDC.get("traceId");
+        System.out.println("timeTaken = " + timeTaken);
 
-        log.debug("{} took {} ms. (info group: '{}', traceId: {})",
-                value("method", typeToLog.getName() + "." + method.getName() + "()"),
-                value("execution_time", timeTaken),
-                value("group", logGroup),
-                value("traceId", traceId));
+        if (timeTaken > 1000000000) { // 1000ms = 1000000000ns
+            log.warn("{} took {} ms. (info group: '{}', traceId: {})",
+                    value("method", typeToLog.getName() + "." + method.getName() + "()"),
+                    value("execution_time", timeTaken / 1000000), // 나노초를 밀리초로 변환
+                    value("group", logGroup),
+                    value("traceId", traceId));
+        } else {
+            log.debug("{} took {} ms. (info group: '{}', traceId: {})",
+                    value("method", typeToLog.getName() + "." + method.getName() + "()"),
+                    value("execution_time", timeTaken / 1000000), // 나노초를 밀리초로 변환
+                    value("group", logGroup),
+                    value("traceId", traceId));
+        }
     }
 
     private String value(String key, Object value) {

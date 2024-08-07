@@ -17,9 +17,9 @@ public class ExecutionTimeLogAdvice implements MethodInterceptor {
 
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         final Object result = invocation.proceed();
-        long endTime = System.currentTimeMillis();
+        long endTime = System.nanoTime();
         long timeTaken = endTime - startTime;
 
         Method method = invocation.getMethod();
