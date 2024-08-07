@@ -14,6 +14,7 @@ import capstone.allbom.auth.service.oauth.kakao.KakaoOAuthClient;
 import capstone.allbom.common.exception.*;
 import capstone.allbom.common.jwt.TokenPayload;
 import capstone.allbom.common.jwt.TokenProcessor;
+import capstone.allbom.config.aspect.TimeTrace;
 import capstone.allbom.member.domain.Member;
 import capstone.allbom.member.domain.MemberRepository;
 import capstone.allbom.member.exception.MemberErrorCode;
@@ -39,6 +40,7 @@ public class AuthService {
     private final RedisTemplate<String, Long> redisTemplate;
     private final PasswordEncoder passwordEncoder;
 
+    @TimeTrace
     @Transactional
     public GeneralSignUpResponse generalRegister(final GeneralSignUpRequest signUpRequest) {
         memberService.validateDuplicateLoginId(signUpRequest.loginId());
@@ -50,6 +52,7 @@ public class AuthService {
         return GeneralSignUpResponse.from(registeredMember);
     }
 
+    @TimeTrace
     @Transactional
     public LoginTokenDto generalLogin(final GeneralLoginRequest loginRequest) {
         Member member = memberRepository.findByLoginId(loginRequest.loginId())

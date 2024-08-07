@@ -11,6 +11,7 @@ import capstone.allbom.auth.service.AuthService;
 import capstone.allbom.auth.service.dto.LoginTokenDto;
 import capstone.allbom.auth.service.dto.ReissuedTokenDto;
 import capstone.allbom.common.exception.BadRequestException;
+import capstone.allbom.config.aspect.TimeTrace;
 import capstone.allbom.member.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -52,7 +53,8 @@ public class AuthController implements AuthControllerDocs {
         return ResponseEntity.ok(response);
     }
 
-    //    @Operation(description = "일반 로그인 시 회원을 등록한다.")
+
+    @TimeTrace
     @PostMapping("/register")
     public ResponseEntity<GeneralSignUpResponse> registerByGeneral(
             @RequestBody GeneralSignUpRequest generalSignUpRequest,
@@ -63,7 +65,8 @@ public class AuthController implements AuthControllerDocs {
         return ResponseEntity.ok(signUpResponse);
     }
 
-    //    @Operation(description = "일반 로그인을 수행한다.")
+
+    @TimeTrace
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> loginByGeneral(
             @RequestBody GeneralLoginRequest generalLoginRequest,
