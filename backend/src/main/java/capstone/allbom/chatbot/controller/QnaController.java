@@ -1,14 +1,10 @@
 package capstone.allbom.chatbot.controller;
 
-import capstone.allbom.chatbot.domain.Qna;
 import capstone.allbom.chatbot.dto.AnswerResponse;
 import capstone.allbom.chatbot.dto.QnaResponse;
 import capstone.allbom.chatbot.dto.QuestionRequest;
 import capstone.allbom.chatbot.service.QnaService;
 import capstone.allbom.common.jwt.Auth;
-import capstone.allbom.game.domain.Subject;
-import capstone.allbom.game.domain.SubjectType;
-import capstone.allbom.game.dto.SentenceResponse;
 import capstone.allbom.member.domain.Member;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

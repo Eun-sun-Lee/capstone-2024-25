@@ -1,15 +1,15 @@
 package capstone.allbom.chatbot.service;
 
-import capstone.allbom.chatbot.domain.Qna;
 import capstone.allbom.chatbot.domain.QnaRepository;
 import capstone.allbom.chatbot.domain.TwentyQuestions;
-import capstone.allbom.chatbot.domain.TwentyQuestionsRepository;
 import capstone.allbom.chatbot.dto.QnaPair;
 import capstone.allbom.chatbot.dto.QuestionRequest;
 import capstone.allbom.chatbot.dto.twentyQuestions.TwentyAnswerRequest;
 import capstone.allbom.chatbot.dto.twentyQuestions.TwentyAnswerResponse;
 import capstone.allbom.chatbot.dto.twentyQuestions.TwentyQnaResponse;
 import capstone.allbom.chatbot.infrastructure.api.TwentyQuestionsRequester;
+import capstone.allbom.chatbot.domain.Qna;
+import capstone.allbom.chatbot.domain.TwentyQuestionsRepository;
 import capstone.allbom.common.exception.BadRequestException;
 import capstone.allbom.common.exception.DefaultErrorCode;
 import capstone.allbom.common.exception.NotFoundException;

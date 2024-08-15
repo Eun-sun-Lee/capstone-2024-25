@@ -1,12 +1,8 @@
 package capstone.allbom.chatbot.domain;
 
-import capstone.allbom.auth.dto.request.GeneralSignUpRequest;
 import capstone.allbom.chatbot.dto.AnswerResponse;
 import capstone.allbom.chatbot.dto.QuestionRequest;
 import capstone.allbom.chatbot.dto.twentyQuestions.TwentyAnswerResponse;
-import capstone.allbom.chatbot.service.TwentyQuestionsService;
-import capstone.allbom.facility.domain.FacilityType;
-import capstone.allbom.member.domain.LoginType;
 import capstone.allbom.member.domain.Member;
 import jakarta.persistence.*;
 import lombok.*;

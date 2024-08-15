@@ -1,9 +1,7 @@
 package capstone.allbom.chatbot.dto;
 
 import capstone.allbom.chatbot.domain.Qna;
-import capstone.allbom.member.domain.Member;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Getter;
 
 @Schema(description = "대화 내역 쌍")
 public record QnaPair(

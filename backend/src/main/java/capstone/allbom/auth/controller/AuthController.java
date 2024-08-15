@@ -11,6 +11,7 @@ import capstone.allbom.auth.service.AuthService;
 import capstone.allbom.auth.service.dto.LoginTokenDto;
 import capstone.allbom.auth.service.dto.ReissuedTokenDto;
 import capstone.allbom.common.exception.BadRequestException;
+import capstone.allbom.config.aspect.LogMethodExecutionTime;
 import capstone.allbom.config.aspect.TimeTrace;
 import capstone.allbom.member.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;

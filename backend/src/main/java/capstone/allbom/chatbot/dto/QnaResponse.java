@@ -1,8 +1,6 @@
 package capstone.allbom.chatbot.dto;
 
-import capstone.allbom.chatbot.domain.Qna;
 import capstone.allbom.member.domain.Member;
-import capstone.allbom.member.dto.MyPageResponse;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;

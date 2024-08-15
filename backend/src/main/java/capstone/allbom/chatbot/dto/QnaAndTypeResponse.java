@@ -1,9 +1,7 @@
 package capstone.allbom.chatbot.dto;
 
-import capstone.allbom.chatbot.domain.AnswerType;
 import capstone.allbom.chatbot.domain.Qna;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.json.simple.JSONObject;
 
 // 질문-응답 쌍 전송 시 호출 (서버 -> AI)
 
