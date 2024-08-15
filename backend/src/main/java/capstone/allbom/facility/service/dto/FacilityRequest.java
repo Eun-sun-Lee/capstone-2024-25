@@ -21,4 +21,20 @@ public record FacilityRequest(
                 .longitude(longitude)
                 .build();
     }
+
+//    private static long idCounter = 0;
+//
+//    // 새로운 id를 생성하는 메서드
+//    private static synchronized long generateId() {
+//        return ++idCounter;
+//    }
+
+    public Facility toFacilityRedis() {
+//        long facilityId = generateId();
+        return Facility.builder()
+                .type(FacilityType.valueOf(type.toUpperCase()))
+                .latitude(latitude)
+                .longitude(longitude)
+                .build();
+    }
 }

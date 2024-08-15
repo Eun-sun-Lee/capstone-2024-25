@@ -63,9 +63,10 @@ public class FacilityService {
                 .toList();
     }
 
-    public void addFacilityToRedis(Facility facility) {
+    public void saveFacilityToRedis(Facility facility) {
         redisTemplate.opsForGeo().add(GEO_KEY,
-                new RedisGeoCommands.GeoLocation<>(facility.getId().toString(),
+                new RedisGeoCommands.GeoLocation<>(
+                        facility.getId().toString(),
                         new Point(facility.getLongitude(), facility.getLatitude())));
     }
 }

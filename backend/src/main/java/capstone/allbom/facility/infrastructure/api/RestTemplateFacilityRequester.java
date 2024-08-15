@@ -71,6 +71,10 @@ public class RestTemplateFacilityRequester {
         return facilityRequests.stream()
                 .map(FacilityRequest::toFacility)
                 .peek(facilityService::saveFacility)
+//                .map(FacilityRequest::toFacilityRedis)
+                .peek(facilityService::saveFacilityToRedis)
                 .toList();
     }
+
+
 }
