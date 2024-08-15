@@ -1,7 +1,6 @@
 package capstone.allbom.chatbot.service;
 
 import capstone.allbom.chatbot.domain.QnaRepository;
-import capstone.allbom.auth.chatbot.dto.*;
 import capstone.allbom.chatbot.infrastructure.api.ChatbotRequester;
 import capstone.allbom.chatbot.domain.Qna;
 import capstone.allbom.chatbot.dto.*;

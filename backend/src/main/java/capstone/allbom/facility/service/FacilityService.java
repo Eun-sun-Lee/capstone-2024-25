@@ -9,6 +9,9 @@ import capstone.allbom.facility.domain.FacilityType;
 import capstone.allbom.facility.dto.FacilityListResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.geo.Point;
+import org.springframework.data.redis.connection.RedisGeoCommands;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +24,8 @@ import java.util.List;
 public class FacilityService {
 
     private final FacilityRepository facilityRepository;
+    private final RedisTemplate<String, Object> redisTemplate;
+    private static final String GEO_KEY = "facilities";
 
     @Transactional(readOnly = true)
     public Facility findByTypeAndId(final Long facilityId, final String type) {
@@ -56,5 +61,11 @@ public class FacilityService {
         return facilities.stream()
                 .map(FacilityListResponse::from)
                 .toList();
+    }
+
+    public void addFacilityToRedis(Facility facility) {
+        redisTemplate.opsForGeo().add(GEO_KEY,
+                new RedisGeoCommands.GeoLocation<>(facility.getId().toString(),
+                        new Point(facility.getLongitude(), facility.getLatitude())));
     }
 }
