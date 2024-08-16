@@ -1,6 +1,5 @@
 package capstone.allbom.chatbot.dto;
 
-import capstone.allbom.chatbot.domain.Qna;
 import capstone.allbom.member.domain.Member;
 
 import java.util.List;

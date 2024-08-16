@@ -1,13 +1,11 @@
 package capstone.allbom.chatbot.service;
 
-import capstone.allbom.chatbot.domain.Qna;
 import capstone.allbom.chatbot.domain.QnaRepository;
-import capstone.allbom.chatbot.domain.TwentyQuestionsRepository;
-import capstone.allbom.chatbot.dto.*;
 import capstone.allbom.chatbot.infrastructure.api.ChatbotRequester;
+import capstone.allbom.chatbot.domain.Qna;
+import capstone.allbom.chatbot.dto.*;
 import capstone.allbom.common.exception.BadRequestException;
 import capstone.allbom.common.exception.DefaultErrorCode;
-import capstone.allbom.common.exception.NotFoundException;
 import capstone.allbom.member.domain.Member;
 import capstone.allbom.member.domain.MemberRepository;
 import lombok.RequiredArgsConstructor;

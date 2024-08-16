@@ -1,6 +1,5 @@
 package capstone.allbom.chatbot.dto.twentyQuestions;
 
-import capstone.allbom.chatbot.dto.AnswerResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.media.Schema;
 

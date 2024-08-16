@@ -1,12 +1,9 @@
 package capstone.allbom.chatbot.infrastructure.api;
 
-import capstone.allbom.chatbot.dto.AnswerRequest;
-import capstone.allbom.chatbot.dto.AnswerResponse;
 import capstone.allbom.chatbot.dto.twentyQuestions.TwentyAnswerRequest;
 import capstone.allbom.chatbot.dto.twentyQuestions.TwentyAnswerResponse;
 import capstone.allbom.common.exception.DefaultErrorCode;
 import capstone.allbom.common.exception.InternalServerError;
-import capstone.allbom.common.exception.UnexpectedException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

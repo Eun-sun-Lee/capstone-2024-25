@@ -1,7 +1,5 @@
 package capstone.allbom.job.dto;
 
-import capstone.allbom.chatbot.dto.QnaAndTypeResponse;
-import capstone.allbom.chatbot.dto.QnaResponse;
 import capstone.allbom.member.domain.Member;
 import io.swagger.v3.oas.annotations.media.Schema;
 

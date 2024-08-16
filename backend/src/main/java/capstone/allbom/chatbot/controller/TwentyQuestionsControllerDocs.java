@@ -4,7 +4,6 @@ import capstone.allbom.chatbot.dto.QuestionRequest;
 import capstone.allbom.chatbot.dto.twentyQuestions.TwentyAnswerResponse;
 import capstone.allbom.chatbot.dto.twentyQuestions.TwentyQnaResponse;
 import capstone.allbom.common.exception.ExceptionResponse;
-import capstone.allbom.common.jwt.Auth;
 import capstone.allbom.member.domain.Member;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
