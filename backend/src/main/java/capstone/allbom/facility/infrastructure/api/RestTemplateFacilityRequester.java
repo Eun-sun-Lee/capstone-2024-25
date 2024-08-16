@@ -30,7 +30,7 @@ public class RestTemplateFacilityRequester {
     private final RestTemplate restTemplate;
     private String FACILITY_REQUEST_URL;
 
-//    @PostConstruct
+    @PostConstruct
     // DB 새로 초기화할때만 주석 해제 후 다시 주석 필요
     public void init() {
         requestFacility();

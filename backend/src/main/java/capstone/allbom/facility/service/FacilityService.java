@@ -9,8 +9,10 @@ import capstone.allbom.facility.domain.FacilityType;
 import capstone.allbom.facility.dto.FacilityListResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.geo.Point;
 import org.springframework.data.redis.connection.RedisGeoCommands;
+import org.springframework.data.redis.core.GeoOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +26,9 @@ import java.util.List;
 public class FacilityService {
 
     private final FacilityRepository facilityRepository;
-    private final RedisTemplate<String, Object> redisTemplate;
+
+    @Qualifier("redisObjectTemplate")
+    private final RedisTemplate<String, String> redisTemplate; // Object -> String
     private static final String GEO_KEY = "facilities";
 
     @Transactional(readOnly = true)
@@ -63,10 +67,16 @@ public class FacilityService {
                 .toList();
     }
 
+//    public void saveFacilityToRedis(Facility facility) {
+//        redisTemplate.opsForGeo().add(GEO_KEY,
+//                new RedisGeoCommands.GeoLocation<>(
+//                        facility.getId().toString(),
+//                        new Point(facility.getLongitude(), facility.getLatitude())));
+//    }
+
     public void saveFacilityToRedis(Facility facility) {
-        redisTemplate.opsForGeo().add(GEO_KEY,
-                new RedisGeoCommands.GeoLocation<>(
-                        facility.getId().toString(),
-                        new Point(facility.getLongitude(), facility.getLatitude())));
+        GeoOperations<String, String> geoOperations = redisTemplate.opsForGeo();
+        Point point = new Point(facility.getLongitude(), facility.getLatitude());
+        geoOperations.add(GEO_KEY, point, facility.getType().toString());
     }
 }
