@@ -16,6 +16,8 @@ import capstone.allbom.job.service.JobService;
 import capstone.allbom.member.domain.Member;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.redis.connection.RedisGeoCommands;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -92,6 +94,23 @@ public class FacilityController implements FacilityControllerDocs{
             );
         }
         return ResponseEntity.ok(mapResponses);
+    }
+
+    @GetMapping("/redis/{type}")
+    public ResponseEntity<List<RedisGeoCommands.GeoLocation<String>>> getFacilitiesByTypeFromRedis(
+            @Auth Member member,
+            @PathVariable final String type,
+            @RequestParam final Double latitude,
+            @RequestParam final Double longitude,
+            @RequestParam final int limit
+    ) {
+
+        // FacilityService의 메서드 호출
+        List<RedisGeoCommands.GeoLocation<String>> nearestFacilities = facilityService.findNearestFacilities(latitude, longitude, limit, type.toUpperCase());
+
+        // 결과를 반환
+        return new ResponseEntity<>(nearestFacilities, HttpStatus.OK);
+//        return ResponseEntity.ok(mapResponses);
     }
 
     @GetMapping("/{type}/{mapId}")
