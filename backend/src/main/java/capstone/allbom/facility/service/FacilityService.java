@@ -67,16 +67,17 @@ public class FacilityService {
                 .toList();
     }
 
+
 //    public void saveFacilityToRedis(Facility facility) {
-//        redisTemplate.opsForGeo().add(GEO_KEY,
-//                new RedisGeoCommands.GeoLocation<>(
-//                        facility.getId().toString(),
-//                        new Point(facility.getLongitude(), facility.getLatitude())));
+//        GeoOperations<String, String> geoOperations = redisTemplate.opsForGeo();
+//        Point point = new Point(facility.getLongitude(), facility.getLatitude());
+//        geoOperations.add(GEO_KEY, point, facility.getType().toString());
 //    }
 
     public void saveFacilityToRedis(Facility facility) {
         GeoOperations<String, String> geoOperations = redisTemplate.opsForGeo();
         Point point = new Point(facility.getLongitude(), facility.getLatitude());
-        geoOperations.add(GEO_KEY, point, facility.getType().toString());
+        String geoKey = facility.getType().toString();
+        geoOperations.add(geoKey, point, facility.getId().toString());
     }
 }
