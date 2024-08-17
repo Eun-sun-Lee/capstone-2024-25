@@ -97,4 +97,23 @@ public class FacilityService {
                 .map(GeoResult::getContent)  // GeoResult에서 GeoLocation 추출
                 .collect(Collectors.toList());
     }
+
+    public List<FacilityListResponse> findFacilitiesWithinPostgis(double latitude, double longitude, double radius, int limit, String type) {
+//        List<Facility> facilities = facilityRepository
+//                .findFacilitiesWithinRadius(latitude, longitude, radius, limit, FacilityType.valueOf(type.toUpperCase()));
+
+        List<Facility> facilities = facilityRepository
+                .findFacilitiesByPostgis(latitude, longitude, radius, limit, type.toUpperCase());
+
+        return facilities.stream()
+                .map(FacilityListResponse::from)
+                .toList();
+    }
+
+    public List<FacilityListResponse> findAllFacilitiesWithinPostgis(double latitude, double longitude, double radius, int limit) {
+        List<Facility> facilities = facilityRepository.findAllFacilitiesByPostgis(latitude, longitude, radius, limit);
+        return facilities.stream()
+                .map(FacilityListResponse::from)
+                .toList();
+    }
 }
