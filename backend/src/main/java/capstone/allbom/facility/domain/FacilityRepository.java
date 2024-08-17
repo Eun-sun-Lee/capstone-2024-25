@@ -30,4 +30,37 @@ public interface FacilityRepository extends JpaRepository<Facility, Long> {
                                                     @Param("northEastLatitude") Double northEastLatitude,
                                                     @Param("northEastLongitude") Double northEastLongitude,
                                                     @Param("facilityType") FacilityType facilityType);
+
+    @Query(value = "SELECT f.* FROM Facility f " +
+            "WHERE ST_DWithin( " +
+            "  CAST(ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326) AS geography), " +
+            "  CAST(ST_SetSRID(ST_MakePoint(f.longitude, f.latitude), 4326) AS geography), :radius * 1000) " +
+            "AND f.type = :facilityType " +
+            "ORDER BY ST_Distance( " +
+            "  CAST(ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326) AS geography), " +
+            "  CAST(ST_SetSRID(ST_MakePoint(f.longitude, f.latitude), 4326) AS geography)) " +
+            "LIMIT :limit",
+            nativeQuery = true)
+    List<Facility> findFacilitiesByPostgis(
+            @Param("latitude") Double latitude,
+            @Param("longitude") Double longitude,
+            @Param("radius") Double radius,
+            @Param("limit") int limit,
+            @Param("facilityType") String facilityType);
+
+
+    @Query(value = "SELECT f.* FROM Facility f " +
+            "WHERE ST_DWithin( " +
+            "  CAST(ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326) AS geography), " +
+            "  CAST(ST_SetSRID(ST_MakePoint(f.longitude, f.latitude), 4326) AS geography), :radius * 1000) " +
+            "ORDER BY ST_Distance( " +
+            "  CAST(ST_SetSRID(ST_MakePoint(:longitude, :latitude), 4326) AS geography), " +
+            "  CAST(ST_SetSRID(ST_MakePoint(f.longitude, f.latitude), 4326) AS geography)) " +
+            "LIMIT :limit",
+            nativeQuery = true)
+    List<Facility> findAllFacilitiesByPostgis(
+            @Param("latitude") Double latitude,
+            @Param("longitude") Double longitude,
+            @Param("radius") Double radius,
+            @Param("limit") int limit);
 }

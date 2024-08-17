@@ -96,8 +96,37 @@ public class FacilityController implements FacilityControllerDocs{
         return ResponseEntity.ok(mapResponses);
     }
 
+    @GetMapping("/postgis/{type}")
+    public ResponseEntity<List<FacilityListResponse>> getFacilitiesTypeByPostgis(
+            @Auth Member member,
+            @PathVariable final String type,
+            @RequestParam final Double latitude,
+            @RequestParam final Double longitude,
+            @RequestParam final Double radius,  // km 단위의 반경
+            @RequestParam final int limit      // 최대 결과 수
+    ) {
+        final List<FacilityListResponse> mapResponses;
+
+        mapResponses = facilityService
+                .findFacilitiesWithinPostgis(latitude, longitude, radius, limit, type);
+        return ResponseEntity.ok(mapResponses);
+    }
+
+    @GetMapping("/postgis")
+    public ResponseEntity<List<FacilityListResponse>> getAllFacilitiesByPostgis(
+            @Auth Member member,
+            @RequestParam final Double latitude,
+            @RequestParam final Double longitude,
+            @RequestParam final Double radius,  // km 단위의 반경
+            @RequestParam final int limit      // 최대 결과 수
+    ) {
+        final List<FacilityListResponse> mapResponses;
+        mapResponses = facilityService.findAllFacilitiesWithinPostgis(latitude, longitude, radius, limit);
+        return ResponseEntity.ok(mapResponses);
+    }
+
     @GetMapping("/redis/{type}")
-    public ResponseEntity<List<RedisGeoCommands.GeoLocation<String>>> getFacilitiesByTypeFromRedis(
+    public ResponseEntity<List<RedisGeoCommands.GeoLocation<String>>> getFacilitiesByRedis(
             @Auth Member member,
             @PathVariable final String type,
             @RequestParam final Double latitude,
