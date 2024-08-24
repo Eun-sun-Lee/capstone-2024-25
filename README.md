@@ -86,5 +86,5 @@ https://drive.google.com/file/d/1hkx6u3X1QIshjXy04HpAK3yoCkCdYSfO/view?usp=drive
 <h2> 📍 서비스 아키텍처 </h2>
 
 <div align="center">
-  <img width="700" src="https://github.com/kookmin-sw/capstone-2024-25/assets/84428520/7907750d-5fa5-4c41-a794-40905e491978" />
+  <img width="700" src="https://github.com/user-attachments/assets/578df0c6-3592-49d1-8358-acdd221a18da" />
 </div>
