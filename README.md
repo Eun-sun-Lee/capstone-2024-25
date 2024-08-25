@@ -12,6 +12,14 @@
 <br />
 <br />
 
+<h2> 📍 서비스 아키텍처 </h2>
+
+<div align="center">
+  <img width="700" src="https://github.com/user-attachments/assets/fc674a32-aaec-456c-8a37-e62818bbc42f" />
+</div>
+<br />
+<br />
+
 <h2> ✏️ 프로젝트 소개 </h2>
 
 <div align="center">
@@ -80,11 +88,3 @@ https://drive.google.com/file/d/1hkx6u3X1QIshjXy04HpAK3yoCkCdYSfO/view?usp=drive
 <h3>➰ Infra</h3>
 <img width="600" src="https://github.com/kookmin-sw/capstone-2024-25/assets/88530565/4a4fc35d-af89-4466-8ca4-a99650b89ac6" />
 
-<br />
-<br />
-
-<h2> 📍 서비스 아키텍처 </h2>
-
-<div align="center">
-  <img width="700" src="https://github.com/user-attachments/assets/fc674a32-aaec-456c-8a37-e62818bbc42f" />
-</div>
