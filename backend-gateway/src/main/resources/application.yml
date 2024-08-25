@@ -1,0 +1,33 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: allbom-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: api-server
+          uri: http://localhost:8080
+          predicates:
+            - Path=/**
+          filters:
+            - name: RequestRateLimiter
+#              args:
+#                redis-rate-limiter.replenishRate: 1
+#                redis-rate-limiter.burstCapacity: 1
+#                redis-rate-limiter.requestedTokens: 1
+#                key-resolver: "#{@memberIdKeyResolver}"
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+
+jwt:
+  access-expiration-time: 1209600000
+  refresh-expiration-time: 1209600000
+
