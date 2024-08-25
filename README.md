@@ -67,7 +67,7 @@ https://drive.google.com/file/d/1hkx6u3X1QIshjXy04HpAK3yoCkCdYSfO/view?usp=drive
 <br />
 <br />
 
-<h2> 🛠️ 기술 스택 </h2>
+<h2> 🛠️ 기술 스택 </h2> 
 
 <h3>➰ FrontEnd</h3>
 <img width="600" src="https://github.com/kookmin-sw/capstone-2024-25/assets/88530565/d5550222-c615-441f-a81a-3a24881b55a9" />
