@@ -15,7 +15,7 @@
 <h2> 📍 서비스 아키텍처 </h2>
 
 <div align="center">
-  <img width="700" src="https://github.com/user-attachments/assets/fc674a32-aaec-456c-8a37-e62818bbc42f" />
+  <img width="700" src="https://github.com/user-attachments/assets/2e78a1a0-f0e9-4960-a4b8-88e4cf6a3942" />
 </div>
 <br />
 <br />
