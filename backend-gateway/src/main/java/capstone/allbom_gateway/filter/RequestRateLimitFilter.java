@@ -13,7 +13,6 @@ import org.springframework.cloud.gateway.filter.ratelimit.RedisRateLimiter;
 import org.springframework.cloud.gateway.support.HasRouteId;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
-import org.springframework.web.server.ServerWebExchange;
 
 @Component
 @Slf4j
@@ -50,14 +49,8 @@ public class RequestRateLimitFilter extends AbstractGatewayFilterFactory<Request
                     });
         };
 
-        return filter;  // 필터를 리턴
+        return filter;
     }
-
-
-//    private Mono<Void> handleRateLimitExceeded(ServerWebExchange exchange) {
-//        // TooManyRequestsException을 발생시킴
-//        return Mono.error(new TooManyRequestsException(AuthErrorCode.TOO_MANY_REQUESTS));
-//    }
 
     private <T> T getOrDefault(T configValue, T defaultValue) {
         return configValue != null ? configValue : defaultValue;

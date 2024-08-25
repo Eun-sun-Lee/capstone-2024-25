@@ -26,7 +26,6 @@ public class RateLimiterConfig {
 
     @Bean
     public RedisRateLimiter redisRateLimiter() {
-        // 기본 replenishRate 및 burstCapacity 값을 지정합니다.
         return new RedisRateLimiter(1, 1, 1);
     }
 }
