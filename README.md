@@ -86,5 +86,5 @@ https://drive.google.com/file/d/1hkx6u3X1QIshjXy04HpAK3yoCkCdYSfO/view?usp=drive
 <h2> 📍 서비스 아키텍처 </h2>
 
 <div align="center">
-  <img width="700" src="https://github.com/user-attachments/assets/578df0c6-3592-49d1-8358-acdd221a18da" />
+  <img width="700" src="https://github.com/user-attachments/assets/fc674a32-aaec-456c-8a37-e62818bbc42f" />
 </div>
